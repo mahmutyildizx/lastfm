@@ -1,24 +1,27 @@
 import React from "react";
+import Link from "next/link";
 import TopArtists from "../../components/TopArtists";
 
 import styles from "./TopArtistsContainer.module.scss";
 
 function TopArtistsContainer({ data }) {
-  
   return (
-    <div className={styles.TopArtistsContainer}>
-      <h1>Top Artist List</h1>
-      {data.artists.artist.map((item, index) => {
-        return (
-          <TopArtists
-            key={index}
-            image={item.image}
-            name={item.name}
-            listeners={item.listeners}
-            playCount={item.playcount}
-          />
-        );
-      })}
+    <div className={styles.topArtistsContainer}>
+      <h1>Top Artists List</h1>
+
+      {data.pages.map((page, i) => (
+        <React.Fragment key={i}>
+          {page.results.artists.artist.map((item, i) => (
+            <TopArtists
+              image={item.image}
+              name={item.name}
+              listeners={item.listeners}
+              playCount={item.playcount}
+              key={i}
+            />
+          ))}
+        </React.Fragment>
+      ))}
     </div>
   );
 }

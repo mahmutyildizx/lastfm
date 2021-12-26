@@ -4,13 +4,13 @@ import styles from "./TopArtists.module.scss";
 
 function TopArtists({ image, name, listeners, playCount }) {
   return (
-    <Link href="/artist-detail" passHref>
+    <Link href={`/artist-detail/${name}`} passHref>
       <div className={styles.container}>
         <img src={image[2]["#text"]} alt="" />
         <p>Artist: {name}</p>
         <div>
           <p>Listeners: {listeners}</p>
-          <p>Playcound: {playCount}</p>
+          <p>Playcount: {playCount}</p>
         </div>
       </div>
     </Link>

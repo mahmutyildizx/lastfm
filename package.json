@@ -11,20 +11,22 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "next": "12.0.7",
+    "classnames": "^2.3.1",
+    "next": "11.0.0",
+    "prop-types": "^15.8.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-query": "^3.34.6",
-    "react-redux": "^7.2.6",
-    "sass": "^1.45.1",
-    "prop-types": "^15.8.0",
-    "classnames": "^2.3.1"
+    "react-redux": "^7.2.6"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@storybook/addon-actions": "^6.4.9",
     "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addon-links": "^6.4.9",
+    "@storybook/builder-webpack5": "^6.4.9",
+    "@storybook/manager-webpack5": "^6.5.0-alpha.5",
+    "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.4.9",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
@@ -32,6 +34,11 @@
     "eslint": "8.5.0",
     "eslint-config-next": "12.0.7",
     "eslint-plugin-storybook": "^0.5.5",
-    "jest": "^27.4.5"
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.4.5",
+    "sass": "^1.45.1",
+    "sass-loader": "^12.4.0",
+    "storybook-css-modules-preset": "^1.1.1",
+    "webpack": "^5.65.0"
   }
 }

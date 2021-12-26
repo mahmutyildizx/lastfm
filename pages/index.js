@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef } from "react";
 import { useInfiniteQuery } from "react-query";
 import TopArtistsContainer from "../src/containers/TopArtistsContainer/TopArtistsContainer";
+import useIntersectionObserver from "../src/hooks/useIntersectionObserver";
+
 import styles from "../styles/Home.module.scss";
 
 function Home() {
@@ -25,10 +27,15 @@ function Home() {
     fetchNextPage,
     hasNextPage,
   } = useInfiniteQuery("topArtists", fetchArtists, {
-    getNextPageParam: (lastPage, pages) => {
-      if (lastPage.nextPage < lastPage.totalPages) return lastPage.nextPage;
-      return undefined;
-    },
+    getNextPageParam: (lastPage) => lastPage.nextPage ?? false,
+  });
+
+  const loadMoreButtonRef = useRef();
+
+  useIntersectionObserver({
+    target: loadMoreButtonRef,
+    onIntersect: fetchNextPage,
+    enabled: hasNextPage,
   });
 
   return status === "loading" ? (
@@ -42,18 +49,20 @@ function Home() {
       </div>
       <div>
         <button
+          ref={loadMoreButtonRef}
           onClick={() => fetchNextPage()}
           disabled={!hasNextPage || isFetchingNextPage}
         >
           {isFetchingNextPage
             ? "Loading more..."
             : hasNextPage
-            ? "Load More"
+            ? "Load Newer"
             : "Nothing more to load"}
         </button>
       </div>
-
-      <div>{isFetching && !isFetchingNextPage ? "Fetching..." : null}</div>
+      <div>
+        {isFetching && !isFetchingNextPage ? "Background Updating..." : null}
+      </div>
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import TopArtists from "../../components/TopArtists";
 
 import styles from "./TopArtistsContainer.module.scss";

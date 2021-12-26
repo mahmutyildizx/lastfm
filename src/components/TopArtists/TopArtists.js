@@ -6,11 +6,11 @@ function TopArtists({ image, name, listeners, playCount }) {
   return (
     <Link href={`/artist-detail/${name}`} passHref>
       <div className={styles.container}>
-        <img src={image[2]["#text"]} alt="" />
-        <p>Artist: {name}</p>
+        <img src={image[2]["#text"]} alt={name} />
+        <span>Artist: {name}</span>
         <div>
-          <p>Listeners: {listeners}</p>
-          <p>Playcount: {playCount}</p>
+          <span>Listeners: {listeners}</span>
+          <span>Playcount: {playCount}</span>
         </div>
       </div>
     </Link>

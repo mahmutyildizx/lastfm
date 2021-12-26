@@ -5,10 +5,14 @@ function TopArtistsDetail({ artistName, name, image, playCount, listeners }) {
   return (
     <div className={styles.container}>
       <img src={image?.[2]["#text"]} alt="" />
-      <p>{artistName}</p>
-      <p>{name}</p>
-      <p>{playCount}</p>
-      {listeners ? <p>{listeners}</p> : null}
+      <div>
+        <span>{artistName}</span>
+        <span>{name}</span>
+      </div>
+      <div>
+        <span>{playCount} play</span>
+        {listeners ? <span>{listeners} listeners</span> : null}
+      </div>
     </div>
   );
 }

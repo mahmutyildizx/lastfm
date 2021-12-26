@@ -2,6 +2,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px;
-  border: 1px solid #000;
+  border: 1px solid #e0e7ef;
+  margin: 20px 10px;
+  &:hover {
+    box-shadow: 4px 4px 20px #e7ebf2;
+  }
+  cursor: pointer;
+  img {
+    padding: 10px;
+  }
+  span {
+    display: block;
+    font-size: 1.5em;
+    padding: 10px;
+    color: rgb(119, 119, 216);
+  }
 }

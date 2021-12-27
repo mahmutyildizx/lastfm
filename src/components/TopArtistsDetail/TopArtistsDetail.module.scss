@@ -7,6 +7,11 @@
   &:hover {
     box-shadow: 4px 4px 20px #e7ebf2;
   }
+  &.darkTheme {
+    span {
+      color: #fff;
+    }
+  }
   cursor: pointer;
   img {
     padding: 10px;

@@ -6,6 +6,14 @@
   &:hover {
     box-shadow: 4px 4px 20px #e7ebf2;
   }
+  background: #fff;
+  &.darkTheme {
+    background: #000;
+    span {
+      color: #fff;
+    }
+  }
+
   cursor: pointer;
   img {
     padding: 10px;
@@ -21,9 +29,22 @@
 .container {
   display: flex;
   width: 100%;
-
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+  &.darkTheme {
+    .leftCol,
+    .rightCol {
+      h2 {
+        color: #fff;
+      }
+    }
+  }
   .leftCol {
     width: 50%;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
     h2 {
       font-size: 1.5em;
       padding: 10px;
@@ -32,6 +53,10 @@
   }
   .rightCol {
     width: 50%;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+
     h2 {
       font-size: 1.5em;
       padding: 10px;

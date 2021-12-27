@@ -1,10 +1,12 @@
 import React from "react";
+import cn from "classnames";
+
 import styles from "./TopArtistsDetail.module.scss";
 
-function TopArtistsDetail({ artistName, name, image, playCount, listeners }) {
+function TopArtistsDetail({ artistName, name, image, playCount, listeners, darkTheme }) {
   return (
-    <div className={styles.container}>
-      <img src={image?.[2]["#text"]} alt="" />
+    <div className={cn(styles.container, { [styles.darkTheme]: darkTheme })}>
+      <img src={image?.[2]["#text"]} alt={name} />
       <div>
         <span>{artistName}</span>
         <span>{name}</span>

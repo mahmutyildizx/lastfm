@@ -1,11 +1,12 @@
 import React, { useRef } from "react";
 import { useInfiniteQuery } from "react-query";
+import cn from "classnames";
 import TopArtistsContainer from "../src/containers/TopArtistsContainer/TopArtistsContainer";
 import useIntersectionObserver from "../src/hooks/useIntersectionObserver";
 
 import styles from "../styles/Home.module.scss";
 
-function Home() {
+function Home({ darkTheme, handleTheme }) {
   const fetchArtists = async ({ pageParam = 1 }) => {
     const response = await fetch(
       `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=a816dd8491b3e9b4213779150d556f5a&page=${pageParam}&limit=10&format=json`
@@ -43,9 +44,13 @@ function Home() {
   ) : status === "error" ? (
     <p>Error: {error.message}</p>
   ) : (
-    <div className={styles.container}>
+    <div className={cn(styles.container, { [styles.darkTheme]: darkTheme })}>
       <div>
-        <TopArtistsContainer data={data} />
+        <TopArtistsContainer
+          data={data}
+          handleTheme={handleTheme}
+          darkTheme={darkTheme}
+        />
       </div>
       <div>
         <button

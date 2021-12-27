@@ -1,5 +1,10 @@
 .container {
-    width: 1200px;
-    margin: 0 auto;
-    background: #fefefe
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  color: #000;
+  &.darkTheme {
+    background: #000;
+    color: #fff;
+  }
 }

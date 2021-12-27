@@ -1,16 +1,17 @@
 import React from "react";
+import cn from "classnames";
 import TopArtistsDetail from "../../components/TopArtistsDetail";
 
 import styles from "./TopArtistsDetailContainer.module.scss";
 
-function TopArtistsDetailContainer({ topAlbums, topTracks }) {
+function TopArtistsDetailContainer({ topAlbums, topTracks, darkTheme }) {
   return (
     <>
-      <div className={styles.header}>
+      <div className={cn(styles.header, { [styles.darkTheme]: darkTheme })}>
         <img src={topTracks?.track[0]?.image?.[2]["#text"]} alt="" />
         <span>{topAlbums?.album[0]?.artist?.name}</span>
       </div>
-      <div className={styles.container}>
+      <div className={cn(styles.container, { [styles.darkTheme]: darkTheme })}>
         <div className={styles.leftCol}>
           <h2>Top Albums</h2>
           {topAlbums?.album?.map((item, i) => {
@@ -21,6 +22,7 @@ function TopArtistsDetailContainer({ topAlbums, topTracks }) {
                 image={item.image}
                 playCount={item.playcount}
                 key={i}
+                darkTheme={darkTheme}
               />
             );
           })}
@@ -36,6 +38,7 @@ function TopArtistsDetailContainer({ topAlbums, topTracks }) {
                 image={item.image}
                 playCount={item.playcount}
                 listeners={item.listeners}
+                darkTheme={darkTheme}
                 key={i}
               />
             );

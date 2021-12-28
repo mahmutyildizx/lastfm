@@ -8,11 +8,11 @@ function MyApp({ Component, pageProps }) {
   const [darkTheme, setDarkTheme] = useState(false);
 
   useEffect(() => {
-    const isDarkTheme = localStorage.getItem("darkTheme") === true;
+    const isDarkTheme = localStorage.getItem("darkTheme") === "true";
     if (isDarkTheme) {
-      return document.querySelector("body").classList.add("dark-theme");
+      document.querySelector("body").classList.add("dark-theme");
+      setDarkTheme(true);
     }
-    setDarkTheme(isDarkTheme);
   }, []);
 
   const handleTheme = () => {

@@ -3,7 +3,14 @@ import cn from "classnames";
 
 import styles from "./TopArtistsDetail.module.scss";
 
-function TopArtistsDetail({ artistName, name, image, playCount, listeners, darkTheme }) {
+function TopArtistsDetail({
+  artistName,
+  name,
+  image,
+  playCount,
+  listeners,
+  darkTheme,
+}) {
   return (
     <div className={cn(styles.container, { [styles.darkTheme]: darkTheme })}>
       <img src={image?.[2]["#text"]} alt={name} />

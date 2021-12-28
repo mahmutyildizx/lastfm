@@ -3,8 +3,22 @@
   margin: 0 auto;
   background: #fff;
   color: #000;
+  button {
+    background: #000;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+  }
   &.darkTheme {
     background: #000;
     color: #fff;
+    button {
+      color: #000;
+      background: #fff;
+    }
   }
 }

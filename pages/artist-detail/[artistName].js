@@ -11,7 +11,7 @@ const getTopTracksUrl = (artistName) => {
   return `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artistName}&api_key=a816dd8491b3e9b4213779150d556f5a&limit=5&format=json`;
 };
 
-export default function Home({ albumsData, tracksData, darkTheme }) {
+ function ArtistDetail({ albumsData, tracksData, darkTheme }) {
   return (
     <div className={cn(styles.container, { [styles.darkTheme]: darkTheme })}>
       <TopArtistsDetailContainer
@@ -36,3 +36,5 @@ export async function getServerSideProps(context) {
   ]);
   return { props: { albumsData, tracksData } };
 }
+
+export default ArtistDetail;

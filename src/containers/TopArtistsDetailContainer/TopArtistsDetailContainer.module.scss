@@ -3,6 +3,12 @@
   align-items: center;
   border: 1px solid #e0e7ef;
   margin: 20px 10px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 20px;
+  }
+
   &:hover {
     box-shadow: 4px 4px 20px #e7ebf2;
   }
@@ -20,8 +26,8 @@
   }
   span {
     display: block;
-    font-size: 1.5em;
-    padding: 10px;
+    font-size: 1em;
+    padding: 5px;
     color: rgb(119, 119, 216);
   }
 }
@@ -40,10 +46,14 @@
       }
     }
   }
+
   .leftCol {
     width: 50%;
     @media screen and (max-width: 768px) {
       width: 100%;
+      h2 {
+        text-align: center;
+      }
     }
     h2 {
       font-size: 1.5em;
@@ -55,6 +65,9 @@
     width: 50%;
     @media screen and (max-width: 768px) {
       width: 100%;
+      h2 {
+        text-align: center;
+      }
     }
 
     h2 {

@@ -9,7 +9,7 @@ function TopArtistsContainer({ data, handleTheme, darkTheme }) {
     <div className={styles.topArtistsContainer}>
       <div className={cn(styles.header, { [styles.darkTheme]: darkTheme })}>
         <h1>Top Artists List</h1>
-        <button onClick={() => handleTheme()}>Switch Button</button>
+        <button onClick={() => handleTheme()}>Dark / Light</button>
       </div>
 
       {data.pages.map((page, i) => (

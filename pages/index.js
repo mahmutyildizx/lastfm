@@ -6,23 +6,22 @@ import useIntersectionObserver from "../src/hooks/useIntersectionObserver";
 
 import styles from "../styles/Home.module.scss";
 
-function Home({ darkTheme, handleTheme }) {
-  const fetchArtists = async ({ pageParam = 1 }) => {
-    const response = await fetch(
-      `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=a816dd8491b3e9b4213779150d556f5a&page=${pageParam}&limit=10&format=json`
-    );
-    const results = await response.json();
-    return {
-      results,
-      nextPage: pageParam + 1,
-      totalPages: results.artists["@attr"].totalPages,
-    };
+const fetchArtists = async ({ pageParam = 1 }) => {
+  const response = await fetch(
+    `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=a816dd8491b3e9b4213779150d556f5a&page=${pageParam}&limit=10&format=json`
+  );
+  const results = await response.json();
+  return {
+    results,
+    nextPage: pageParam + 1,
+    totalPages: results.artists["@attr"].totalPages,
   };
+};
 
+function Home({ darkTheme, handleTheme }) {
   const {
     status,
     data,
-    error,
     isFetching,
     isFetchingNextPage,
     fetchNextPage,
@@ -39,11 +38,7 @@ function Home({ darkTheme, handleTheme }) {
     enabled: hasNextPage,
   });
 
-  return status === "loading" ? (
-    <p>Loading...</p>
-  ) : status === "error" ? (
-    <p>Error: {error.message}</p>
-  ) : (
+  return status === "success" && (
     <div className={cn(styles.container, { [styles.darkTheme]: darkTheme })}>
       <div>
         <TopArtistsContainer

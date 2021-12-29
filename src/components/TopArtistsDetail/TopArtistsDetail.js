@@ -14,11 +14,11 @@ function TopArtistsDetail({
   return (
     <div className={cn(styles.container, { [styles.darkTheme]: darkTheme })}>
       <img src={image?.[2]["#text"]} alt={name} />
-      <div>
+      <div className={styles.leftCol}>
         <span>{artistName}</span>
         <span>{name}</span>
       </div>
-      <div>
+      <div className={styles.rightCol}>
         <span>{playCount} play</span>
         {listeners ? <span>{listeners} listeners</span> : null}
       </div>

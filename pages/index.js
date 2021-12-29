@@ -26,14 +26,21 @@ function Home({ darkTheme, handleTheme }) {
     onIntersect: fetchNextPage,
     enabled: hasNextPage,
   });
+
   const handleFetchNewPage = isFetchingNextPage
     ? "Loading more..."
     : hasNextPage
     ? "Load Newer"
     : "Nothing more to load";
 
-  return (
-    status === "success" && (
+  if (status === "loading")
+    return <span className={styles.statusCheck}>Loading...</span>;
+
+  if (status === "error")
+    return <span className={styles.statusCheck}> Error: {error.message}</span>;
+
+  if (status === "success")
+    return (
       <div className={cn(styles.container, { [styles.darkTheme]: darkTheme })}>
         <TopArtistsContainer
           data={data}
@@ -49,8 +56,7 @@ function Home({ darkTheme, handleTheme }) {
         </button>
         {isFetching && !isFetchingNextPage ? "Background Updating..." : null}
       </div>
-    )
-  );
+    );
 }
 
 export default Home;

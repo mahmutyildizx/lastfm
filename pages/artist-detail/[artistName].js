@@ -2,6 +2,7 @@ import React from "react";
 import cn from "classnames";
 import TopArtistsDetailContainer from "../../src/containers/TopArtistsDetailContainer";
 import { getAlbumsUrl, getTopTracksUrl } from "../../utils/apiHelpers";
+
 import styles from "../../styles/Home.module.scss";
 
 function ArtistDetail({ albumsData, tracksData, darkTheme }) {

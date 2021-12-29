@@ -3,16 +3,13 @@
   align-items: center;
   border: 1px solid #e0e7ef;
   margin: 20px 10px;
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    padding: 20px;
-  }
+  background: #fff;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 4px 4px 20px #e7ebf2;
   }
-  background: #fff;
+
   &.darkTheme {
     background: #000;
     span {
@@ -20,7 +17,6 @@
     }
   }
 
-  cursor: pointer;
   img {
     padding: 10px;
   }
@@ -30,14 +26,17 @@
     padding: 5px;
     color: rgb(119, 119, 216);
   }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 20px;
+  }
 }
 
 .container {
   display: flex;
   width: 100%;
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-  }
+
   &.darkTheme {
     .leftCol,
     .rightCol {
@@ -49,31 +48,38 @@
 
   .leftCol {
     width: 50%;
-    @media screen and (max-width: 768px) {
-      width: 100%;
-      h2 {
-        text-align: center;
-      }
-    }
-    h2 {
-      font-size: 1.5em;
-      padding: 10px;
-      color: rgb(211, 85, 35);
-    }
-  }
-  .rightCol {
-    width: 50%;
-    @media screen and (max-width: 768px) {
-      width: 100%;
-      h2 {
-        text-align: center;
-      }
-    }
 
     h2 {
       font-size: 1.5em;
       padding: 10px;
       color: rgb(211, 85, 35);
     }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+
+  .rightCol {
+    width: 50%;
+
+    h2 {
+      font-size: 1.5em;
+      padding: 10px;
+      color: rgb(211, 85, 35);
+    }
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
   }
 }

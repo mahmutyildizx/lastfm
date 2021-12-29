@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
+
 import "../styles/globals.scss";
 
 const queryClient = new QueryClient();

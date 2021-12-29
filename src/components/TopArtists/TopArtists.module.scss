@@ -5,12 +5,12 @@
   border: 1px solid #e0e7ef;
   border-radius: 6px;
   margin: 10px 0px;
+  background: #fff;
 
   &:hover {
     box-shadow: 4px 4px 20px #e7ebf2;
   }
 
-  background: #fff;
   &.darkTheme {
     background: #000;
     span {

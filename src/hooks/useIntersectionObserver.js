@@ -17,13 +17,13 @@ export default function useIntersectionObserver({
       (entries) =>
         entries.forEach((entry) => entry.isIntersecting && onIntersect()),
       {
-        root: root && root.current,
+        root: root?.current,
         rootMargin,
         threshold,
       }
     );
 
-    const el = target && target.current;
+    const el = target?.current;
 
     if (!el) {
       return;
@@ -34,5 +34,6 @@ export default function useIntersectionObserver({
     return () => {
       observer.unobserve(el);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [target.current, enabled]);
 }
